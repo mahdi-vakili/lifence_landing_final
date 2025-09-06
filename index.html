@@ -149,9 +149,9 @@
                     <a href="#faq" class="text-white hover:text-gray-200 text-sm font-medium px-2 py-2 transition-colors">سوالات متداول</a>
                     <button 
                         class="bg-white hover:bg-gray-100 text-primary font-bold text-sm px-4 py-2 rounded-lg transition-all duration-300 mt-2 w-fit"
-                        aria-label="هدیه رایگان"
+                        aria-label="یک هفته استفاده رایگان"
                     >
-                        هدیه رایگان
+                        یک هفته استفاده رایگان
                     </button>
                 </div>
             </div>
@@ -1087,10 +1087,10 @@
                     mobileMenu.classList.toggle('hidden');
                 });
                 
-                // Close mobile menu when clicking on a link
-                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-                mobileMenuLinks.forEach(link => {
-                    link.addEventListener('click', function() {
+                // Close mobile menu when clicking on any item (links or buttons)
+                const mobileMenuItems = mobileMenu.querySelectorAll('a, button');
+                mobileMenuItems.forEach(item => {
+                    item.addEventListener('click', function() {
                         mobileMenu.classList.add('hidden');
                     });
                 });
