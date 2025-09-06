@@ -1194,14 +1194,15 @@
                     
                     // File protocol check removed - always send data to Google Apps Script
                     
-                    // Send data to Google Apps Script in the exact format it expects
+                    // Send data to Google Apps Script using FormData to avoid preflight request
+                    const formData = new FormData();
+                    formData.append('name', data.name);
+                    formData.append('phone', data.phone);
+                    
                     const response = await fetch('https://script.google.com/macros/s/AKfycbysQrAqKtSRJoRcmgp1yuUMMPVLomMJR25BIEumJNlH3vlmm0Ua9ZcIVKy4h9Qhn5Eq/exec', {
                         method: 'POST',
                         mode: 'no-cors', // This bypasses CORS restrictions
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(data)
+                        body: formData
                     });
                     
                     console.log('Response received:', response);
@@ -1361,7 +1362,7 @@
         
         // Test function to verify Google Apps Script is accessible (global scope)
         function testGoogleAppsScript() {
-            console.log('Testing Google Apps Script with JSON data...');
+            console.log('Testing Google Apps Script with FormData...');
             const testData = {
                 name: 'Test User',
                 phone: '1234567890'
@@ -1369,13 +1370,14 @@
             
             console.log('Sending test data:', testData);
             
+            const formData = new FormData();
+            formData.append('name', testData.name);
+            formData.append('phone', testData.phone);
+            
             fetch('https://script.google.com/macros/s/AKfycbysQrAqKtSRJoRcmgp1yuUMMPVLomMJR25BIEumJNlH3vlmm0Ua9ZcIVKy4h9Qhn5Eq/exec', {
                 method: 'POST',
                 mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(testData)
+                body: formData
             })
             .then(response => {
                 console.log('Test response:', response);
@@ -1393,17 +1395,18 @@
         
         // Alternative test function with different data format
         function testGoogleAppsScriptAlternative() {
-            console.log('Testing Google Apps Script with FormData...');
+            console.log('Testing Google Apps Script with URL-encoded data...');
             
-            // Try with FormData (though your script expects JSON)
-            const formData = new FormData();
-            formData.append('name', 'Alternative Test User');
-            formData.append('phone', '9876543210');
+            // Try with URL-encoded data
+            const urlEncodedData = `name=${encodeURIComponent('Alternative Test User')}&phone=${encodeURIComponent('9876543210')}`;
             
             fetch('https://script.google.com/macros/s/AKfycbysQrAqKtSRJoRcmgp1yuUMMPVLomMJR25BIEumJNlH3vlmm0Ua9ZcIVKy4h9Qhn5Eq/exec', {
                 method: 'POST',
                 mode: 'no-cors',
-                body: formData
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: urlEncodedData
             })
             .then(response => {
                 console.log('Alternative test response:', response);
