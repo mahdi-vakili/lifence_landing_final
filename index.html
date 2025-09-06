@@ -183,6 +183,7 @@
                         
                         <form action="https://script.google.com/macros/s/AKfycbysQrAqKtSRJoRcmgp1yuUMMPVLomMJR25BIEumJNlH3vlmm0Ua9ZcIVKy4h9Qhn5Eq/exec" 
                               method="POST"
+                              target="hidden_iframe"
                               class="space-y-5">
                             <!-- Name Input -->
                             <div>
@@ -673,6 +674,7 @@
                    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
                        <form action="https://script.google.com/macros/s/AKfycbysQrAqKtSRJoRcmgp1yuUMMPVLomMJR25BIEumJNlH3vlmm0Ua9ZcIVKy4h9Qhn5Eq/exec" 
                              method="POST"
+                             target="hidden_iframe"
                              class="space-y-4">
                            <!-- Name Input -->
                            <div>
@@ -1102,6 +1104,39 @@
             </div>
         </div>
     </footer>
+
+    <!-- Hidden iframe for form submission -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+    <!-- Form submission script -->
+    <script>
+        // Handle form submissions
+        document.addEventListener('DOMContentLoaded', function() {
+            const forms = document.querySelectorAll('form[action*="script.google.com"]');
+            
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    // Show loading state
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'در حال ارسال...';
+                    submitBtn.disabled = true;
+                    
+                    // Reset button after a short delay
+                    setTimeout(() => {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        
+                        // Show success message
+                        alert('✅ فرم با موفقیت ارسال شد! به زودی با شما تماس خواهیم گرفت.');
+                        
+                        // Reset form
+                        form.reset();
+                    }, 2000);
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
