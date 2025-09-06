@@ -181,12 +181,13 @@
                         </h3>
 
                         
-                        <form id="hero-form" class="space-y-5">
+                        <form action="https://script.google.com/macros/s/AKfycbysQrAqKtSRJoRcmgp1yuUMMPVLomMJR25BIEumJNlH3vlmm0Ua9ZcIVKy4h9Qhn5Eq/exec" 
+                              method="POST"
+                              class="space-y-5">
                             <!-- Name Input -->
                             <div>
                                 <input 
                                     type="text" 
-                                    id="hero-name" 
                                     name="name" 
                                     required
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#155B5C] focus:border-transparent text-right"
@@ -198,8 +199,7 @@
                             <div>
                                 <input 
                                     type="tel" 
-                                    id="hero-mobile" 
-                                    name="mobile" 
+                                    name="phone" 
                                     required
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#155B5C] focus:border-transparent text-right"
                                     placeholder="شماره موبایل"
@@ -209,7 +209,6 @@
                             <!-- CTA Button -->
                             <button 
                                 type="submit"
-                                id="hero-submit-btn"
                                 class="w-full bg-[#155B5C] hover:bg-[#0f4a4b] text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                             >
                                 شروع یک هفته رایگان
@@ -217,13 +216,6 @@
                             
                         </form>
                         
-                        <!-- Success Message (Hidden by default) -->
-                        <div id="hero-success-message" class="hidden text-center mt-4">
-                            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg">
-                                <p class="font-medium">✅ ثبت شد</p>
-                                <p class="text-sm mt-1">به زودی با شما تماس خواهیم گرفت</p>
-                            </div>
-                        </div>
                         
                         <!-- Supporting text below form -->
                         <p class="text-sm text-gray-600 text-center mt-4 leading-relaxed">
@@ -679,12 +671,13 @@
                <!-- Form -->
                <div class="flex justify-center">
                    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
-                       <form id="cta-form" class="space-y-4">
+                       <form action="https://script.google.com/macros/s/AKfycbysQrAqKtSRJoRcmgp1yuUMMPVLomMJR25BIEumJNlH3vlmm0Ua9ZcIVKy4h9Qhn5Eq/exec" 
+                             method="POST"
+                             class="space-y-4">
                            <!-- Name Input -->
                            <div>
                                <input 
                                    type="text" 
-                                   id="cta-name" 
                                    name="name" 
                                    required
                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-right mb-4"
@@ -696,8 +689,7 @@
                            <div>
                                <input 
                                    type="tel" 
-                                   id="cta-mobile" 
-                                   name="mobile" 
+                                   name="phone" 
                                    required
                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-right mb-4"
                                    placeholder="شماره موبایل"
@@ -707,38 +699,13 @@
                            <!-- CTA Button -->
                            <button 
                                type="submit"
-                               id="cta-submit-btn"
                                class="w-full bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300"
                            >
                                سلامتی رو به والدین‌تون هدیه بدین
                            </button>
                        </form>
                        
-                       <!-- Success Message for CTA (Hidden by default) -->
-                       <div id="cta-success-message" class="hidden text-center mt-4">
-                           <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg">
-                               <p class="font-medium">✅ ثبت شد</p>
-                               <p class="text-sm mt-1">به زودی با شما تماس خواهیم گرفت</p>
-                           </div>
-                       </div>
                        
-                       <!-- Test Buttons for Google Apps Script -->
-                       <div class="text-center mt-4 space-y-2">
-                           <button 
-                               id="test-gas-btn"
-                               class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 text-sm mr-2"
-                               onclick="testGoogleAppsScript()"
-                           >
-                               Test GAS (JSON)
-                           </button>
-                           <button 
-                               id="test-gas-alt-btn"
-                               class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 text-sm"
-                               onclick="testGoogleAppsScriptAlternative()"
-                           >
-                               Test GAS (FormData)
-                           </button>
-                       </div>
                        
                        <!-- Small text below form -->
                        <p class="text-xs text-gray-600 text-center mt-4 leading-relaxed">
@@ -1136,291 +1103,5 @@
         </div>
     </footer>
 
-    <!-- Form Submission Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const heroForm = document.getElementById('hero-form');
-            const submitBtn = document.getElementById('hero-submit-btn');
-            const successMessage = document.getElementById('hero-success-message');
-            
-            const ctaForm = document.getElementById('cta-form');
-            const ctaSubmitBtn = document.getElementById('cta-submit-btn');
-            const ctaSuccessMessage = document.getElementById('cta-success-message');
-            
-            // Ready to send data to Google Apps Script
-            
-            // Debug: Check if form elements are found
-            console.log('Hero form found:', heroForm);
-            console.log('CTA form found:', ctaForm);
-            console.log('CTA submit button found:', ctaSubmitBtn);
-            console.log('CTA success message found:', ctaSuccessMessage);
-            
-            // Unified form submission function
-            async function handleFormSubmission(e, formType, nameFieldId, phoneFieldId, submitBtnId, formElement, successElement) {
-                e.preventDefault(); // Prevent default form submission
-                
-                // Get form data
-                const name = document.getElementById(nameFieldId).value.trim();
-                const phone = document.getElementById(phoneFieldId).value.trim();
-                
-                console.log(`${formType} form submitted with data:`, { name, phone });
-                console.log('Name field element:', document.getElementById(nameFieldId));
-                console.log('Phone field element:', document.getElementById(phoneFieldId));
-                console.log('Name field value:', document.getElementById(nameFieldId).value);
-                console.log('Phone field value:', document.getElementById(phoneFieldId).value);
-                
-                // Validate inputs
-                if (!name || !phone) {
-                    alert('لطفاً تمام فیلدها را پر کنید');
-                    return;
-                }
-                
-                // Show loading state
-                const submitBtn = document.getElementById(submitBtnId);
-                const originalText = submitBtn.textContent;
-                submitBtn.textContent = 'در حال ارسال...';
-                submitBtn.disabled = true;
-                
-                try {
-                    // Prepare data in JSON format
-                    const data = {
-                        name: name,
-                        phone: phone
-                    };
-                    
-                    console.log('Sending data to Google Apps Script:', data);
-                    console.log('URL:', 'https://script.google.com/macros/s/AKfycbysQrAqKtSRJoRcmgp1yuUMMPVLomMJR25BIEumJNlH3vlmm0Ua9ZcIVKy4h9Qhn5Eq/exec');
-                    console.log('Data being sent as JSON:', JSON.stringify(data));
-                    
-                    // File protocol check removed - always send data to Google Apps Script
-                    
-                    // Send data to Google Apps Script using FormData to avoid preflight request
-                    const formData = new FormData();
-                    formData.append('name', data.name);
-                    formData.append('phone', data.phone);
-                    
-                    const response = await fetch('https://script.google.com/macros/s/AKfycbysQrAqKtSRJoRcmgp1yuUMMPVLomMJR25BIEumJNlH3vlmm0Ua9ZcIVKy4h9Qhn5Eq/exec', {
-                        method: 'POST',
-                        mode: 'no-cors', // This bypasses CORS restrictions
-                        body: formData
-                    });
-                    
-                    console.log('Response received:', response);
-                    console.log('Response type:', response.type);
-                    
-                    // With no-cors mode, we can't read the response, but if no error was thrown,
-                    // the request was likely successful
-                    console.log('✅ Form submitted successfully! (no-cors mode)');
-                    
-                    // Show success message
-                    formElement.style.display = 'none';
-                    successElement.classList.remove('hidden');
-                    
-                    // Reset form
-                    document.getElementById(nameFieldId).value = '';
-                    document.getElementById(phoneFieldId).value = '';
-                    
-                } catch (error) {
-                    console.error('Fetch error:', error);
-                    console.error('Error details:', {
-                        name: error.name,
-                        message: error.message,
-                        stack: error.stack
-                    });
-                    
-                    // Try alternative submission method
-                    console.log('Trying alternative submission method due to error...');
-                    tryAlternativeSubmission({ name, phone });
-                } finally {
-                    // Reset button state
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                }
-            }
-            
-            // Hero form handler
-            heroForm.addEventListener('submit', async function(e) {
-                await handleFormSubmission(e, 'Hero', 'hero-name', 'hero-mobile', 'hero-submit-btn', heroForm, successMessage);
-            });
-            
-            // CTA form handler
-            ctaForm.addEventListener('submit', async function(e) {
-                console.log('CTA form submit event triggered!');
-                alert('CTA form submitted! Check console for details.');
-                await handleFormSubmission(e, 'CTA', 'cta-name', 'cta-mobile', 'cta-submit-btn', ctaForm, ctaSuccessMessage);
-            });
-            
-            // Also add click handler to the button for debugging and form submission
-            ctaSubmitBtn.addEventListener('click', async function(e) {
-                console.log('CTA button clicked!');
-                console.log('Form element:', ctaForm);
-                console.log('Form validity:', ctaForm.checkValidity());
-                
-                // Trigger form submission
-                await handleFormSubmission(e, 'CTA', 'cta-name', 'cta-mobile', 'cta-submit-btn', ctaForm, ctaSuccessMessage);
-            });
-            
-            // Alternative submission method using form data
-            function tryAlternativeSubmission(data) {
-                console.log('Attempting alternative submission with FormData...');
-                console.log('Data for alternative submission:', data);
-                
-                const formData = new FormData();
-                formData.append('name', data.name);
-                formData.append('phone', data.phone);
-                
-                // Try with different approaches
-                const approaches = [
-                    // Approach 1: FormData with no-cors
-                    {
-                        name: 'FormData with no-cors',
-                        options: {
-                            method: 'POST',
-                            mode: 'no-cors',
-                            body: formData
-                        }
-                    },
-                    // Approach 2: JSON with no-cors
-                    {
-                        name: 'JSON with no-cors',
-                        options: {
-                            method: 'POST',
-                            mode: 'no-cors',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify(data)
-                        }
-                    },
-                    // Approach 3: URL-encoded with no-cors
-                    {
-                        name: 'URL-encoded with no-cors',
-                        options: {
-                            method: 'POST',
-                            mode: 'no-cors',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded',
-                            },
-                            body: `name=${encodeURIComponent(data.name)}&phone=${encodeURIComponent(data.phone)}`
-                        }
-                    }
-                ];
-                
-                // Try each approach sequentially
-                let success = false;
-                const tryApproach = async (approach, index) => {
-                    if (success) return;
-                    
-                    console.log(`Trying approach ${index + 1}: ${approach.name}`);
-                    try {
-                        const response = await fetch('https://script.google.com/macros/s/AKfycbysQrAqKtSRJoRcmgp1yuUMMPVLomMJR25BIEumJNlH3vlmm0Ua9ZcIVKy4h9Qhn5Eq/exec', approach.options);
-                        console.log(`${approach.name} response:`, response);
-                        console.log(`${approach.name} response type:`, response.type);
-                        
-                        // If we get here without error, consider it successful
-                        if (!success) {
-                            success = true;
-                            console.log(`✅ Alternative submission successful with ${approach.name}`);
-                            
-                            // Show success message
-                            const formElement = document.querySelector('#cta-form') || document.querySelector('#hero-form');
-                            const successElement = document.querySelector('#cta-success-message') || document.querySelector('#hero-success-message');
-                            
-                            if (formElement && successElement) {
-                                formElement.style.display = 'none';
-                                successElement.classList.remove('hidden');
-                                
-                                // Reset form
-                                const nameField = document.querySelector('#cta-name') || document.querySelector('#hero-name');
-                                const phoneField = document.querySelector('#cta-mobile') || document.querySelector('#hero-mobile');
-                                
-                                if (nameField) nameField.value = '';
-                                if (phoneField) phoneField.value = '';
-                            }
-                        }
-                    } catch (error) {
-                        console.error(`${approach.name} error:`, error);
-                        
-                        // Try next approach if this one failed
-                        if (index < approaches.length - 1) {
-                            await tryApproach(approaches[index + 1], index + 1);
-                        } else {
-                            // All approaches failed
-                            console.error('❌ All alternative submission methods failed');
-                            alert('خطا در ارسال فرم. لطفاً دوباره تلاش کنید یا با ما تماس بگیرید.');
-                        }
-                    }
-                };
-                
-                // Start with the first approach
-                tryApproach(approaches[0], 0);
-            }
-            
-            
-            // Test functions available for manual testing
-        });
-        
-        // Test function to verify Google Apps Script is accessible (global scope)
-        function testGoogleAppsScript() {
-            console.log('Testing Google Apps Script with FormData...');
-            const testData = {
-                name: 'Test User',
-                phone: '1234567890'
-            };
-            
-            console.log('Sending test data:', testData);
-            
-            const formData = new FormData();
-            formData.append('name', testData.name);
-            formData.append('phone', testData.phone);
-            
-            fetch('https://script.google.com/macros/s/AKfycbysQrAqKtSRJoRcmgp1yuUMMPVLomMJR25BIEumJNlH3vlmm0Ua9ZcIVKy4h9Qhn5Eq/exec', {
-                method: 'POST',
-                mode: 'no-cors',
-                body: formData
-            })
-            .then(response => {
-                console.log('Test response:', response);
-                console.log('Test response type:', response.type);
-                
-                // With no-cors mode, we can't read the response, but if no error was thrown,
-                // the request was likely successful
-                alert('✅ Test completed! Data should be in your Google Sheet. (no-cors mode)');
-            })
-            .catch(error => {
-                console.error('Google Apps Script test error:', error);
-                alert('❌ Test failed! Check console for error details.');
-            });
-        }
-        
-        // Alternative test function with different data format
-        function testGoogleAppsScriptAlternative() {
-            console.log('Testing Google Apps Script with URL-encoded data...');
-            
-            // Try with URL-encoded data
-            const urlEncodedData = `name=${encodeURIComponent('Alternative Test User')}&phone=${encodeURIComponent('9876543210')}`;
-            
-            fetch('https://script.google.com/macros/s/AKfycbysQrAqKtSRJoRcmgp1yuUMMPVLomMJR25BIEumJNlH3vlmm0Ua9ZcIVKy4h9Qhn5Eq/exec', {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: urlEncodedData
-            })
-            .then(response => {
-                console.log('Alternative test response:', response);
-                console.log('Alternative test response type:', response.type);
-                
-                // With no-cors mode, we can't read the response, but if no error was thrown,
-                // the request was likely successful
-                alert('✅ Alternative test completed! Check console for details. (no-cors mode)');
-            })
-            .catch(error => {
-                console.error('Alternative test error:', error);
-                alert('❌ Alternative test failed! Check console for error details.');
-            });
-        }
-    </script>
 </body>
 </html>
