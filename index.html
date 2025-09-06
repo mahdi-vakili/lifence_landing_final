@@ -181,38 +181,39 @@
                         </h3>
 
                         <form action="https://script.google.com/macros/s/AKfycbysQrAqKtSRJoRcmgp1yuUMMPVLomMJR25BIEumJNlH3vlmm0Ua9ZcIVKy4h9Qhn5Eq/exec" 
-                        method="GET"
-                        class="space-y-5">
-                      <!-- Name Input -->
-                      <div>
-                          <input 
-                              type="text" 
-                              name="name" 
-                              required
-                              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#155B5C] focus:border-transparent text-right"
-                              placeholder="نام شما"
-                          >
-                      </div>
-                      
-                      <!-- Mobile Number Input -->
-                      <div>
-                          <input 
-                              type="tel" 
-                              name="phone" 
-                              required
-                              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#155B5C] focus:border-transparent text-right"
-                              placeholder="شماره موبایل"
-                          >
-                      </div>
-                      
-                      <!-- CTA Button -->
-                      <button 
-                          type="submit"
-                          class="w-full bg-[#155B5C] hover:bg-[#0f4a4b] text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-                      >
-                          شروع یک هفته رایگان
-                      </button>
-                  </form>
+                              method="GET"
+                              target="hidden_iframe"
+                              class="space-y-5">
+                            <!-- Name Input -->
+                            <div>
+                                <input 
+                                    type="text" 
+                                    name="name" 
+                                    required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#155B5C] focus:border-transparent text-right"
+                                    placeholder="نام شما"
+                                >
+                            </div>
+                            
+                            <!-- Mobile Number Input -->
+                            <div>
+                                <input 
+                                    type="tel" 
+                                    name="phone" 
+                                    required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#155B5C] focus:border-transparent text-right"
+                                    placeholder="شماره موبایل"
+                                >
+                            </div>
+                            
+                            <!-- CTA Button -->
+                            <button 
+                                type="submit"
+                                class="w-full bg-[#155B5C] hover:bg-[#0f4a4b] text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                            >
+                                شروع یک هفته رایگان
+                            </button>
+                        </form>
                   
                         
                         <!-- Supporting text below form -->
@@ -1024,18 +1025,23 @@
              const allButtons = document.querySelectorAll('button');
              
              // Add click event to each button
-             allButtons.forEach(button => {
-                 button.addEventListener('click', function(e) {
-                     // Don't scroll if it's a FAQ toggle button
-                     if (this.onclick && this.onclick.toString().includes('toggleFAQ')) {
-                         return;
-                     }
-                     
-                     // Scroll to CTA section
-                     e.preventDefault();
-                     scrollToCTA();
-                 });
-             });
+            allButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Don't scroll if it's a FAQ toggle button
+                    if (this.onclick && this.onclick.toString().includes('toggleFAQ')) {
+                        return;
+                    }
+                    
+                    // ✅ New condition: if button is inside a form, let it submit
+                    if (this.closest('form')) {
+                        return;
+                    }
+                    
+                    // Otherwise, default behavior: prevent default and scroll
+                    e.preventDefault();
+                    scrollToCTA();
+                });
+            });
          });
     </script>
 
