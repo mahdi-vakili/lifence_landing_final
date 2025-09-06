@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifence - Coming Soon</title>
+    <meta name="description" content="Lifence - Small habits, big differences for parents' health">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#155B5C',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        body {
+            background-color: #155B5C;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .main-image {
+            max-width: 90vw;
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex items-center justify-center min-h-screen w-full">
+        <img src="/main_page.png" alt="Lifence" class="main-image">
+    </div>
+</body>
+</html>
