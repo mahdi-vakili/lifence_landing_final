@@ -177,11 +177,11 @@
                 <div class="w-full lg:w-1/2 text-right space-y-6 lg:space-y-8">
                     <!-- Headlines -->
                     <div class="space-y-4">
-                    <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                             یک دوست صمیمی در پیام‌رسان، برای سلامتی والدین‌
                     </h1>
                     
-                        <h2 class="text-base sm:text-lg md:text-xl font-medium text-gray-500 leading-tight">
+                        <h2 class="text-lg sm:text-xl md:text-2xl font-medium text-gray-600 leading-relaxed">
                             هر روز چند قدم ساده، ولی اثرگذار. لایفنس مثل یک دوست هم‌سن‌وسال، کمک می‌کنه پدر و مادر شما عادت‌های سالم رو به راحتی وارد زندگی کنن.
                         </h2>
                     </div>
@@ -209,7 +209,7 @@
                             یک هفته رایگان لایفنس را فعال کنید
                         </h3>
 
-
+                        
                         <form action="https://script.google.com/macros/s/AKfycbyWYSmAPoYuLwdU9WHI-oYAacnm59qEKzzlyincmPFukjG8tXhk3GzKpXP1lLMnAH2j/exec" 
                               method="GET"
                               target="hidden_iframe"
@@ -244,7 +244,7 @@
                                 شروع یک هفته رایگان
                             </button>
                         </form>
-                  
+                        
                         
                         <!-- Supporting text below form -->
                         <p class="text-sm text-gray-600 text-center mt-4 leading-relaxed">
@@ -1049,19 +1049,19 @@
              }
          }
 
-        // Add click event listeners to all buttons when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get all buttons on the page
-            const allButtons = document.querySelectorAll('button');
-            
-            // Add click event to each button
-            allButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    // Don't scroll if it's a FAQ toggle button
-                    if (this.onclick && this.onclick.toString().includes('toggleFAQ')) {
-                        return;
-                    }
-                    
+         // Add click event listeners to all buttons when page loads
+         document.addEventListener('DOMContentLoaded', function() {
+             // Get all buttons on the page
+             const allButtons = document.querySelectorAll('button');
+             
+             // Add click event to each button
+             allButtons.forEach(button => {
+                 button.addEventListener('click', function(e) {
+                     // Don't scroll if it's a FAQ toggle button
+                     if (this.onclick && this.onclick.toString().includes('toggleFAQ')) {
+                         return;
+                     }
+                     
                     // Don't scroll if it's the mobile menu button
                     if (this.id === 'mobile-menu-button') {
                         return;
@@ -1073,10 +1073,10 @@
                     }
                     
                     // Otherwise, default behavior: prevent default and scroll
-                    e.preventDefault();
-                    scrollToCTA();
-                });
-            });
+                     e.preventDefault();
+                     scrollToCTA();
+                 });
+             });
             
             // Mobile menu toggle functionality
             const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -1095,7 +1095,7 @@
                     });
                 });
             }
-        });
+         });
     </script>
 
 
@@ -1172,12 +1172,12 @@
             
             forms.forEach(form => {
                 form.addEventListener('submit', function(e) {
-                    // Show loading state
+                // Show loading state
                     const submitBtn = form.querySelector('button[type="submit"]');
-                    const originalText = submitBtn.textContent;
-                    submitBtn.textContent = 'در حال ارسال...';
-                    submitBtn.disabled = true;
-                    
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'در حال ارسال...';
+                submitBtn.disabled = true;
+                
                     // Reset button after a short delay
                     setTimeout(() => {
                         submitBtn.textContent = originalText;
