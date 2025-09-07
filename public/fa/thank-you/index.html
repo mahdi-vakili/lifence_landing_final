@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تشکر از شما - لایفنس</title>
+    <meta name="description" content="اطلاعات شما با موفقیت ثبت شد">
+    
+    <!-- Google Fonts - Vazirmatn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon.webp">
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'vazir': ['Vazirmatn', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#155B5C',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="font-vazir bg-white">
+    <!-- Header -->
+    <header class="bg-primary shadow-lg">
+        <nav class="container mx-auto px-4 md:px-8 max-w-screen-xl">
+            <div class="flex items-center justify-between py-3">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="/images/common/logo.webp" alt="Lifence" class="h-12 sm:h-15 w-auto">
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="min-h-screen flex items-center justify-center py-12">
+        <div class="container mx-auto px-4 md:px-8 max-w-screen-xl">
+            <div class="max-w-2xl mx-auto text-center">
+                <!-- Success Icon -->
+                <div class="mb-8">
+                    <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+                        <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Main Heading -->
+                <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+                    اطلاعات شما با موفقیت ثبت شد ✅
+                </h1>
+
+                <!-- Subheading -->
+                <p class="text-lg sm:text-xl text-gray-700 mb-8 leading-relaxed">
+                    همکاران ما طی ۲۴ ساعت آینده با شما تماس خواهند گرفت.
+                </p>
+
+                <!-- Source Information (if available) -->
+                <div id="source-info" class="mb-8 hidden">
+                    <p class="text-base text-gray-600">
+                        این ثبت‌نام از صفحه <span id="source-page" class="font-semibold text-primary"></span> انجام شد.
+                    </p>
+                </div>
+
+                <!-- Back to Home Link -->
+                <div class="mb-8">
+                    <a href="/fa/" 
+                       class="inline-block bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
+                        بازگشت به صفحه اصلی
+                    </a>
+                </div>
+
+                <!-- Additional Info -->
+                <div class="bg-gray-50 rounded-lg p-6 text-right">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                        در انتظار تماس ما باشید
+                    </h3>
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        تیم ما در اسرع وقت با شما تماس خواهد گرفت تا اطلاعات بیشتری درباره خدمات لایفنس دریافت کنید و سوالاتتان را پاسخ دهیم.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 md:px-8 max-w-screen-xl text-center">
+            <div class="flex items-center justify-center mb-4">
+                <img src="/images/common/logo.webp" alt="Lifence" class="h-8 w-auto">
+            </div>
+            <p class="text-sm text-gray-300">
+                عادت‌های کوچیک، فرق‌های بزرگ برای سلامتی شما
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script to read source parameter -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const source = urlParams.get('source');
+            
+            if (source) {
+                // Show source info
+                const sourceInfo = document.getElementById('source-info');
+                const sourcePage = document.getElementById('source-page');
+                
+                // Map source values to Persian names
+                const sourceNames = {
+                    'back-pain': 'کمردرد',
+                    'knee-pain': 'زانودرد', 
+                    'heart-stroke': 'سکته قلبی',
+                    'parents': 'والدین'
+                };
+                
+                const sourceName = sourceNames[source] || source;
+                sourcePage.textContent = sourceName;
+                sourceInfo.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

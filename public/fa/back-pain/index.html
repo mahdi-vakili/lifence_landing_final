@@ -1123,16 +1123,13 @@
                 submitBtn.textContent = 'در حال ارسال...';
                 submitBtn.disabled = true;
                 
-                    // Reset button after a short delay
+                    // Reset button after a short delay and redirect
                     setTimeout(() => {
                         submitBtn.textContent = originalText;
                         submitBtn.disabled = false;
                         
-                        // Show success message
-                        alert('✅ فرم با موفقیت ارسال شد! به زودی با شما تماس خواهیم گرفت.');
-                        
-                        // Reset form
-                        form.reset();
+                        // Redirect to thank you page with source parameter
+                        window.location.href = '/fa/thank-you/?source=back-pain';
                     }, 2000);
                 });
             });
