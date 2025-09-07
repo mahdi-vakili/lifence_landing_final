@@ -79,30 +79,15 @@
                     همکاران ما طی ۲۴ ساعت آینده با شما تماس خواهند گرفت.
                 </p>
 
-                <!-- Source Information (if available) -->
-                <div id="source-info" class="mb-8 hidden">
-                    <p class="text-base text-gray-600">
-                        این ثبت‌نام از صفحه <span id="source-page" class="font-semibold text-primary"></span> انجام شد.
-                    </p>
-                </div>
 
-                <!-- Back to Home Link -->
+                <!-- Back to Original Page Link -->
                 <div class="mb-8">
-                    <a href="/fa/" 
+                    <a id="back-link" href="/fa/" 
                        class="inline-block bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
                         بازگشت به صفحه اصلی
                     </a>
                 </div>
 
-                <!-- Additional Info -->
-                <div class="bg-gray-50 rounded-lg p-6 text-right">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-3">
-                        در انتظار تماس ما باشید
-                    </h3>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        تیم ما در اسرع وقت با شما تماس خواهد گرفت تا اطلاعات بیشتری درباره خدمات لایفنس دریافت کنید و سوالاتتان را پاسخ دهیم.
-                    </p>
-                </div>
             </div>
         </div>
     </main>
@@ -119,7 +104,7 @@
         </div>
     </footer>
 
-    <!-- Script to read source parameter -->
+    <!-- Script to handle back link -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Get URL parameters
@@ -127,21 +112,28 @@
             const source = urlParams.get('source');
             
             if (source) {
-                // Show source info
-                const sourceInfo = document.getElementById('source-info');
-                const sourcePage = document.getElementById('source-page');
-                
-                // Map source values to Persian names
-                const sourceNames = {
-                    'back-pain': 'کمردرد',
-                    'knee-pain': 'زانودرد', 
-                    'heart-stroke': 'سکته قلبی',
-                    'parents': 'والدین'
+                // Update back link to go to the original page
+                const backLink = document.getElementById('back-link');
+                const sourceUrls = {
+                    'back-pain': '/fa/back-pain/',
+                    'knee-pain': '/fa/knee-pain/',
+                    'heart-stroke': '/fa/heart-stroke/',
+                    'parents': '/fa/parents/'
                 };
                 
-                const sourceName = sourceNames[source] || source;
-                sourcePage.textContent = sourceName;
-                sourceInfo.classList.remove('hidden');
+                const sourceUrl = sourceUrls[source] || '/fa/';
+                backLink.href = sourceUrl;
+                
+                // Update button text based on source
+                const sourceNames = {
+                    'back-pain': 'بازگشت به صفحه کمردرد',
+                    'knee-pain': 'بازگشت به صفحه زانودرد',
+                    'heart-stroke': 'بازگشت به صفحه سکته قلبی',
+                    'parents': 'بازگشت به صفحه والدین'
+                };
+                
+                const buttonText = sourceNames[source] || 'بازگشت به صفحه اصلی';
+                backLink.textContent = buttonText;
             }
         });
     </script>
