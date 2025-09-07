@@ -25,29 +25,57 @@
 
 
 
+# import os
+
+# # مسیر پوشه‌ی اصلی
+# base_path = r'C:\Users\Mehdi\Desktop\lifence_landing_final'  # ← مسیر دلخواهتو بزن
+
+# # عبور از تمام فایل‌ها
+# for root, dirs, files in os.walk(base_path):
+#     for file in files:
+#         if file.lower() == 'index.html':
+#             file_path = os.path.join(root, file)
+
+#             try:
+#                 # خواندن محتوای فایل
+#                 with open(file_path, 'r', encoding='utf-8') as f:
+#                     content = f.read()
+
+#                 # جایگزینی تمام .png با .webp
+#                 new_content = content.replace('.png', '.webp')
+
+#                 # ذخیره محتوای جدید در همان فایل
+#                 with open(file_path, 'w', encoding='utf-8') as f:
+#                     f.write(new_content)
+
+#                 print(f'✅ ویرایش شد: {file_path}')
+#             except Exception as e:
+#                 print(f'❌ خطا در {file_path}: {e}')
+
+
+
+
+
+
+
+
 import os
 
 # مسیر پوشه‌ی اصلی
-base_path = r'C:\Users\Mehdi\Desktop\lifence_landing_final'  # ← مسیر دلخواهتو بزن
+base_path = r'C:\Users\Mehdi\Desktop\lifence_landing_final'  # ← مسیر دلخواه خودت رو بزن
 
-# عبور از تمام فایل‌ها
+# عبور از همه فایل‌ها
+deleted_count = 0
+
 for root, dirs, files in os.walk(base_path):
     for file in files:
-        if file.lower() == 'index.html':
+        if file.lower().endswith('.png'):
             file_path = os.path.join(root, file)
-
             try:
-                # خواندن محتوای فایل
-                with open(file_path, 'r', encoding='utf-8') as f:
-                    content = f.read()
-
-                # جایگزینی تمام .png با .webp
-                new_content = content.replace('.png', '.webp')
-
-                # ذخیره محتوای جدید در همان فایل
-                with open(file_path, 'w', encoding='utf-8') as f:
-                    f.write(new_content)
-
-                print(f'✅ ویرایش شد: {file_path}')
+                os.remove(file_path)
+                print(f"🗑️ حذف شد: {file_path}")
+                deleted_count += 1
             except Exception as e:
-                print(f'❌ خطا در {file_path}: {e}')
+                print(f"❌ خطا در حذف {file_path}: {e}")
+
+print(f"\n✅ مجموعاً {deleted_count} فایل PNG حذف شد.")
